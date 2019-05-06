@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :rut %>
-    <%= form.text_field :rut %>
-  </div>
-
-  <div class="field">
     <%= form.label :fisrtname %>
     <%= form.text_field :fisrtname %>
   </div>
@@ -33,7 +28,7 @@
 
   <div class="field">
     <%= form.label :avatar %>
-    <%= form.text_field :avatar %>
+   <%= form.file_field :avatar %>
   </div>
 
   <div class="field">
@@ -46,14 +41,19 @@
     <%= form.text_field :phone %>
   </div>
 
+   <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
   <div class="field">
     <%= form.label :municipality_id %>
-    <%= form.text_field :municipality_id %>
+      <%= form.collection_select(:municipality_id, Municipality.all, :id, :description, prompt: false)%>
   </div>
 
   <div class="field">
     <%= form.label :city_id %>
-    <%= form.text_field :city_id %>
+    <%= form.collection_select(:city_id, City.all, :id, :description, prompt: false)%>
   </div>
 
   <div class="actions">

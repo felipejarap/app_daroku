@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+      @products = current_user.products
   end
 
   # GET /orders/1
@@ -24,7 +25,10 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+   @product = Product.find(params[:product_id])
+    @order = Order.new(product_id: @product.id, user_id: current_user.id)
+    @order.created_at = Time.now
+
 
     respond_to do |format|
       if @order.save

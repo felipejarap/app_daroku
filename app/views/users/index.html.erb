@@ -1,43 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Rut</th>
-      <th>Fisrtname</th>
-      <th>Lastname</th>
-      <th>Age</th>
-      <th>Avatar</th>
-      <th>Nickname</th>
-      <th>Phone</th>
-      <th>Municipality</th>
-      <th>City</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.rut %></td>
-        <td><%= user.fisrtname %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.age %></td>
-        <td><%= user.avatar %></td>
-        <td><%= user.nickname %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.municipality %></td>
-        <td><%= user.city %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container">
+  <div class="row">
+     <div class="w-100" style="margin-bottom:20px"> </div>
+    <% @products.each_slice(4) do |row| %>
+    <% row.each do |product| %>
+    <div class="col">
+      <div class="card">
+        <%= image_tag product.photo, class:'card-img-top' %>
+        <div class="body">
+          <h5><%=product.name %></h5>
+          <p><%= product.brand %><p>
+          <p><%= product.description %><p>
+          <p><%= product.price %><p>
+          <p><%= product.stock %><p>
+          <p><%= product.category.description %><p>
+            <%= link_to "añadir al carito de compra",product_orders_path(product), class: 'btn btn-success', method: :post %>
+        </div>
+         </div>
+       </div>
+      <% end %>
+      <div class="w-100" style="margin-top:20px"> </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+    </div>
+  </div>
+</div>

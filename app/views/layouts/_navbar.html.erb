@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="">Daroku</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+      </li>
+      <% if user_signed_in? %>
+      
+       <li class="nav-item">
+        <a class="nav-link"><Strong>bienvenido!  <%=current_user.nickname%>.</Strong></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"<%=link_to 'Home', root_path, class: 'btn btn-primary' %></a>
+      </li>
+       <li class="nav-item">
+       <a class="nav-link" <%= link_to 'Registrar productos', new_product_path, class: 'btn btn-primary'%></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"<%=link_to 'carrito de compras', orders_path, class: 'btn btn-primary'%></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%= link_to 'Cerrar session'.html_safe, destroy_user_session_path, class: 'btn btn-primary', method: :delete%></a>
+      </li>
+      <% else %>
+  <li class="nav-item">
+        <a class="nav-link" <%= link_to 'Registrar', new_user_registration_path, class: 'btn btn-success'%></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link"  <%= link_to 'iniciar session', new_user_session_path, class: 'btn btn-success'%></a>
+      </li>
+<% end %>
+    </ul>
+  </div>
+</nav>
