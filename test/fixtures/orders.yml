@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pay: false
+  amount: 1
+  required_quantity: MyString
+  user: one
+  product: one
+
+two:
+  pay: false
+  amount: 1
+  required_quantity: MyString
+  user: two
+  product: two

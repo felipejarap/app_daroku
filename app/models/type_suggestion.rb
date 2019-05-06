@@ -1,0 +1,2 @@
+class TypeSuggestion < ApplicationRecord
+end
