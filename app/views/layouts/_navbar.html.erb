@@ -15,6 +15,9 @@
       <li class="nav-item">
           <a class="nav-link"<%=link_to 'Home', root_path, class: 'btn btn-primary' %></a>
       </li>
+        <li class="nav-item">
+          <a class="nav-link"<%=link_to 'profile', users_path(@user), class: 'btn btn-primary' %></a>
+      </li>
        <li class="nav-item">
        <a class="nav-link" <%= link_to 'Registrar productos', new_product_path, class: 'btn btn-primary'%></a>
       </li>
